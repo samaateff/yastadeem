@@ -22,46 +22,95 @@
     <link rel="stylesheet" href="css/bootstrap.rtl.min.css"/>
     <link rel="stylesheet" href="css/style.css"/>
     <style>
-        form.active{
+        .car {
+            position: absolute;
+            z-index: 10;
+            -moz-animation: myfirst 10s linear alternate;
+            -webkit-animation: myfirst 10s linear alternate;
+        }
+
+        @-moz-keyframes myfirst {
+            0% {
+                left: -100%;
+            }
+            100% {
+                left: 100%;
+            }
+        }
+
+        @-webkit-keyframes myfirst {
+            0% {
+                left: -100%;
+            }
+            100% {
+                left: 100%;
+            }
+        }
+
+        @-moz-keyframes tyre-rotate {
+            from {
+                -moz-transform: rotate(-360deg);
+            }
+            to {
+                -moz-transform: rotate(0deg);
+            }
+
+        }
+
+        @-webkit-keyframes tyre-rotate {
+            from {
+                -webkit-transform: rotate(-360deg);
+            }
+            to {
+                -webkit-transform: rotate(0deg);
+            }
+        }
+
+        form.active {
             animation: fadeInRight 1s ease-in-out;
         }
+
         @keyframes fadeInRight {
-  from {
-    opacity: 0;
-    transform: translateX(300px);
-  }
-  to {
-    opacity: 1;
-  }
-}
-form.unactive{
+            from {
+                opacity: 0;
+                transform: translateX(300px);
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        form.unactive {
             animation: fadeOutRight 1s ease-in-out;
         }
+
         @keyframes fadeOutRight {
-  from {
-    opacity: 1;
-   
-  }
-  to {
-    opacity: 0;
-    transform: translateX(0);
-  }
-}
+            from {
+                opacity: 1;
+
+            }
+            to {
+                opacity: 0;
+                transform: translateX(0);
+            }
+        }
     </style>
 </head>
 <body>
-    
 
-    <div class="load-bar"><div class="linear"></div></div>
-    <div id="myOverlay" class="overlay">
-        <span class="closebtn" onclick="closeSearch()" title="Close Overlay">×</span>
-        <div class="overlay-content">
-          <form action="/action_page.php">
+
+<div class="load-bar">
+    <div class="linear"></div>
+</div>
+<div id="myOverlay" class="overlay">
+    <span class="closebtn" onclick="closeSearch()" title="Close Overlay">×</span>
+    <div class="overlay-content">
+        <form action="/action_page.php">
             <input type="text" placeholder="كلمة البحث ...." name="search">
             <button type="submit"><i class="fa fa-search"></i></button>
-          </form>
-        </div>
-      </div>
+        </form>
+    </div>
+</div>
 <!-- topheader -->
 <div class="container">
     <div style="display: flex; justify-content: space-between;">
@@ -170,7 +219,7 @@ form.unactive{
                 <div class="btns">
                     <img onclick="openSearch()" class="srchicon" src="images/searchicon.svg"/>
                     <a href="#" class="loginbtn">تسجيل الدخول</a>
-                    <a href="#" class="servicebtn">طلب الخدمة</a> 
+                    <a href="#" class="servicebtn">طلب الخدمة</a>
                 </div>
 
             </div>
@@ -183,25 +232,25 @@ form.unactive{
 <div class="container container1">
     <div class="aftercontainer">
         <span class="socialspan">تابعنا على</span>
-       <!-- <a href="#"> <img class="facebook" src="images/Icon awesome-facebook-f.svg"/> </a> -->
-       <a href="#"><i class="facebook fab fa-facebook-f"></i></a>
-       <!-- <a href="#"> <img class="linkedin" src="images/Icon awesome-linkedin-in.png"/> </a> -->
-       <a href="#"><i class="linkedin fab fa-linkedin-in"></i></a>
-       <!-- <a href="#"> <img class="instagram" src="images/Icon feather-instagram.svg"/> </a> -->
-       <a href="#"><i class="instagram fab fa-instagram"></i></a>
-       <!-- <a href="#"> <img class="whatsapp" src="images/843773_whatsapp_icon (1).svg" width="30px"/> </a> -->
-       <a href="#"><i class="whatsapp fab fa-whatsapp"></i></a>
+        <!-- <a href="#"> <img class="facebook" src="images/Icon awesome-facebook-f.svg"/> </a> -->
+        <a href="#"><i class="facebook fab fa-facebook-f"></i></a>
+        <!-- <a href="#"> <img class="linkedin" src="images/Icon awesome-linkedin-in.png"/> </a> -->
+        <a href="#"><i class="linkedin fab fa-linkedin-in"></i></a>
+        <!-- <a href="#"> <img class="instagram" src="images/Icon feather-instagram.svg"/> </a> -->
+        <a href="#"><i class="instagram fab fa-instagram"></i></a>
+        <!-- <a href="#"> <img class="whatsapp" src="images/843773_whatsapp_icon (1).svg" width="30px"/> </a> -->
+        <a href="#"><i class="whatsapp fab fa-whatsapp"></i></a>
     </div>
     <div class="aftercontainer2">
         <span class="yasspan">yastaeem</span>
     </div>
 
     <div class="homecontent1">
-        
+
         <div class="owl-carousel owl-theme ThemeCoderClass myowl myfowl">
 
             <div class="item1">
-                
+
                 <div class="homecontent">
                     <span class="homespan">حياكم الله</span>
                     <h1 class="homeh1">منصة بلوكة<br/> لفحص العقارات</h1>
@@ -214,7 +263,7 @@ form.unactive{
                 </div>
                 <img src="images/future-building-construction-engineering-project.png"/>
             </div>
-            
+
             <div class="item1">
                 <div class="homecontent">
                     <span class="homespan">حياكم الله</span>
@@ -277,22 +326,27 @@ form.unactive{
             </a>
         </div>
         <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div style="background-color: rgba(3,3,3,0.5); z-index: 999999999999999;" class="modal-content">
-        <div class="modal-body">
-            <iframe style="width: 100%;height: 80vh;" src="https://www.youtube.com/embed/6QAELgirvjs?list=PLDoPjvoNmBAw_t_XWUFbBX-c9MafPk9ji" title="Learn HTML In Arabic 2021 - #01 - Introduction and What I Need To Learn" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div style="background-color: rgba(3,3,3,0.5); z-index: 999999999999999;" class="modal-content">
+                    <div class="modal-body">
+                        <iframe style="width: 100%;height: 80vh;"
+                                src="https://www.youtube.com/embed/6QAELgirvjs?list=PLDoPjvoNmBAw_t_XWUFbBX-c9MafPk9ji"
+                                title="Learn HTML In Arabic 2021 - #01 - Introduction and What I Need To Learn"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
         <div class="circle">
             <div>
                 <div class="circle_border">
                 </div>
-            <a href="#about">
-            <img class="circlei" src="images/Group 452.svg" height="25%"/>
-            </a>
+                <a href="#about">
+                    <img class="circlei" src="images/Group 452.svg" height="25%"/>
+                </a>
             </div>
         </div>
     </div>
@@ -301,12 +355,12 @@ form.unactive{
 
 <!-- about -->
 <div data-aos="fade-down" data-aos-easing="ease-out-cubic"
-data-aos-duration="1000" id="about" class="aboutsection">
+     data-aos-duration="1000" id="about" class="aboutsection">
     <div class="container">
         <div class="row">
             <div class="col-md-6">
                 <div data-aos="fade-down" data-aos-easing="ease-out-cubic"
-                data-aos-duration="1000" class="aboutdiv">
+                     data-aos-duration="1000" class="aboutdiv">
                     <span class="homespan">تعرف علينا</span>
                     <h2 class="abouth22"> ماذا نقدم ؟</h2>
                     <p class="aboutp">هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء
@@ -317,7 +371,7 @@ data-aos-duration="1000" id="about" class="aboutsection">
                     <div class="row">
                         <div class="col-lg-6 col-12">
                             <div data-aos="fade-down" data-aos-easing="ease-out-cubic"
-                            data-aos-duration="1000">
+                                 data-aos-duration="1000">
                                 <img class="abouticon1" src="images/172529_price_usd_tag_icon.svg"/>
                                 <span class="abouts">سعر مناسب</span>
                             </div>
@@ -339,32 +393,33 @@ data-aos-duration="1000" id="about" class="aboutsection">
 
             <div class="col-md-6">
                 <div data-aos="fade-down" data-aos-easing="ease-out-cubic"
-                data-aos-duration="1000" class="aboutimg">
+                     data-aos-duration="1000" class="aboutimg">
                     <img class="shape1" src="images/Group 1563.svg"/>
                     <img data-aos="fade-down" data-aos-easing="ease-out-cubic"
-                    data-aos-duration="1000" class="myabout" src="images/Group 457.png"/>
+                         data-aos-duration="1000" class="myabout" src="images/Group 457.png"/>
                     <div>
                         <img class="shape2" src="images/Group 1669.svg"/>
                         <img class="shape3" src="images/Group 1547.svg"/>
                     </div>
-
                     <div data-aos="fade-down" data-aos-easing="ease-out-cubic"
-                    data-aos-duration="1000" class="wcircle">
-                        <div class="borderr"></div>
-                        <div class="circlecontent">
-                            <a href="#">
-                            <div style="text-align: center;">
-                                <div class="srchimg">
-                                    <img src="images/Icon feather-search.svg"/>
-                                </div>
+                         data-aos-duration="1000" class="wcircle">
+                        <div class="car">
+                            <div style="width: 165px;height: 165px" class="borderr"></div>
+                            <div style="animation: tyre-rotate 10s alternate linear;top:7px;right: 7px" class="circlecontent">
+                                <a href="#">
+                                    <div style="text-align: center;">
+                                        <div class="srchimg">
+                                            <img src="images/Icon feather-search.svg"/>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span class="examine">افحص عقارك مع</span>
+                                    </div>
+                                    <div>
+                                        <span class="yastdem">يستديم</span>
+                                    </div>
+                                </a>
                             </div>
-                            <div>
-                                <span class="examine">افحص عقارك مع</span>
-                            </div>
-                            <div>
-                                <span class="yastdem">يستديم</span>
-                            </div>
-                            </a>
                         </div>
                     </div>
                 </div>
@@ -381,7 +436,9 @@ data-aos-duration="1000" id="about" class="aboutsection">
     <div>
         <img class="shape4" src="images/Group 1670.svg"/>
     </div>
-    <div class="lines-1 lines-100"><div class="inside-it"><img src="images/arrow.png"></div></div>
+    <div class="lines-1 lines-100">
+        <div class="inside-it"><img src="images/arrow.png"></div>
+    </div>
     <div class="container">
         <div class="aboutsection1">
             <span class="homespan">تعرف علينا</span>
@@ -483,22 +540,22 @@ data-aos-duration="1000" id="about" class="aboutsection">
                 </div>
             </div>
             <div class="mapsidediv">
-            <div class="mapside">
-                <span class="homespan">تعرف علينا</span>
-                <h2 class="abouth222">اماكن الخدمة</h2>
-                <p class="sidemapp">هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما
-                    سيلهي القارئ عن التركيز على الشكل الخارجي للنص</p>
-                <div class="elryad">
-                    <div style="margin-right: -43px;">
-                        <img src="images/Group 1548.png"/>
-                        <span class="elryadspan">الرياض</span>
-                    </div>
-                    <div>
-                        <img src="images/Group 1548.png"/>
-                        <span class="elryadspan">الرياض</span>
+                <div class="mapside">
+                    <span class="homespan">تعرف علينا</span>
+                    <h2 class="abouth222">اماكن الخدمة</h2>
+                    <p class="sidemapp">هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما
+                        سيلهي القارئ عن التركيز على الشكل الخارجي للنص</p>
+                    <div class="elryad">
+                        <div style="margin-right: -43px;">
+                            <img src="images/Group 1548.png"/>
+                            <span class="elryadspan">الرياض</span>
+                        </div>
+                        <div>
+                            <img src="images/Group 1548.png"/>
+                            <span class="elryadspan">الرياض</span>
+                        </div>
                     </div>
                 </div>
-            </div>
             </div>
         </div>
         <div class="col-lg-8">
@@ -729,18 +786,19 @@ data-aos-duration="1000" id="about" class="aboutsection">
                     <span class="p11">ابق على تواصل معنا ليصلك كل جديد</span>
                     <div class="inputdiv">
                         <form>
-                        <input type="text" class="form-control myinput" placeholder="ادخل بريدك الالكترونى"/>
-                        <img class="material" src="images/Icon material-email.png"/>
-                        <button class="inputicon">
-                        <img class="inputicon2" src="images/Icon ionic-ios-send.png"/>
-                        </button>
+                            <input type="text" class="form-control myinput" placeholder="ادخل بريدك الالكترونى"/>
+                            <img class="material" src="images/Icon material-email.png"/>
+                            <button class="inputicon">
+                                <img class="inputicon2" src="images/Icon ionic-ios-send.png"/>
+                            </button>
                         </form>
                         <!-- <i class="fa fa-location-arrow inputicon"></i> -->
                     </div>
                     <div class="footersocial">
-                       <a href="#" class="face"> <img class="faceimg" src="images/Icon awesome-facebook-f (1).svg"/> </a>
-                       <a href="#" class="face face2"> <img src="images/Icon awesome-linkedin-in.png"/> </a>
-                       <a href="#" class="face"> <img src="images/Icon ionic-logo-twitter.svg"/> </a>
+                        <a href="#" class="face"> <img class="faceimg" src="images/Icon awesome-facebook-f (1).svg"/>
+                        </a>
+                        <a href="#" class="face face2"> <img src="images/Icon awesome-linkedin-in.png"/> </a>
+                        <a href="#" class="face"> <img src="images/Icon ionic-logo-twitter.svg"/> </a>
                     </div>
                 </div>
             </div>
@@ -770,47 +828,48 @@ data-aos-duration="1000" id="about" class="aboutsection">
 </script>
 
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
         $("#exampleModal").on('hidden.bs.modal', function (e) {
-    $("#exampleModal iframe").attr("src", $("#exampleModal iframe").attr("src"));
-    var $v = $(e.delegateTarget).find('video');
-    $v[0].pause();
-});
+            $("#exampleModal iframe").attr("src", $("#exampleModal iframe").attr("src"));
+            var $v = $(e.delegateTarget).find('video');
+            $v[0].pause();
+        });
 // variables 
-var toTop = $('.to-top');
+        var toTop = $('.to-top');
 // logic
-toTop.on('click', function() {
-$('html, body').animate({
-scrollTop: $('html, body').offset().top,
-});
-});
+        toTop.on('click', function () {
+            $('html, body').animate({
+                scrollTop: $('html, body').offset().top,
+            });
+        });
 
-});
+    });
 
-// Get this script ready when the page loads
-$(document).ready(function() {
+    // Get this script ready when the page loads
+    $(document).ready(function () {
 //   Create a function
-$(".scrollDown").click(function(event) {
+        $(".scrollDown").click(function (event) {
 //       Select the body of the page and scroll down by 650 pixels worth
-$("html, body").animate({ scrollTop: $('.backimg').offset().top },1000);
-});
-});
-  </script>
-  <script>
+            $("html, body").animate({scrollTop: $('.backimg').offset().top}, 1000);
+        });
+    });
+</script>
+<script>
     $('.overlay-content form').hide();
+
     function openSearch() {
-      $('#myOverlay').fadeIn(2000);
-      $('.overlay-content form').fadeIn(1000).addClass('active');
-      $('.overlay-content form').removeClass('unactive');
-    //   $('.overlay-content form').delay(2000).slideDown(2000);
+        $('#myOverlay').fadeIn(2000);
+        $('.overlay-content form').fadeIn(1000).addClass('active');
+        $('.overlay-content form').removeClass('unactive');
+        //   $('.overlay-content form').delay(2000).slideDown(2000);
     }
-    
+
     function closeSearch() {
         $('#myOverlay').fadeOut(2000);
         $('.overlay-content form').removeClass('active');
         $('.overlay-content form').fadeIn(1000).addClass('unactive');
     }
-    </script>
-  
+</script>
+
 </body>
 </html>    
